@@ -203,6 +203,7 @@ def generate_model_answers(data, model, tokenizer, device, model_name, do_sample
     all_input_output_ids = []
     all_output_ids = []
     counter = 0
+    print('ran')
     for prompt in tqdm(data):
 
         model_input = tokenize(prompt, tokenizer, model_name).to(device)
@@ -228,7 +229,7 @@ def generate_model_answers(data, model, tokenizer, device, model_name, do_sample
                 print(f"Prompt: {prompt}")
                 print(f"Answer: {answer}")
             counter += 1
-
+    print('ran')
     return all_textual_answers, all_input_output_ids, all_scores, all_output_ids
 
 
