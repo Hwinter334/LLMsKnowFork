@@ -215,7 +215,7 @@ def generate_model_answers(data, model, tokenizer, device, model_name, do_sample
 
         answer = tokenizer.decode(model_output['sequences'][0][len(model_input[0]):])
         if output_scores:
-            scores = torch.concatenate(model_output['scores']).cpu()  # shape = (new_tokens, len(vocab))
+            scores = torch.concatenate(model_output['scores']).cpu().half()  # shape = (new_tokens, len(vocab))
             all_scores.append(scores)
             output_ids = model_output['sequences'][0][len(model_input[0]):].cpu()
             all_output_ids.append(output_ids)
